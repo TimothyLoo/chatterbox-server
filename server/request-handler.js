@@ -80,7 +80,6 @@ var requestHandler = function(request, response) {
       request.on('data', (chunk) => {
         body += chunk;
       }).on('end', ()=> {
-        // body = JSON.stringify(Buffer.push(body));
         messages.push(JSON.parse(body));
         response.end(JSON.stringify(messages));
       });
@@ -93,6 +92,11 @@ var requestHandler = function(request, response) {
     }
   }
 
+
+  if (request.method === 'OPTIONS') {
+    response.writeHead(200, headers);
+    response.end(JSON.stringify({message: 'WHY WOULD YOU DO THIS TO ME'}));
+  }
   //
   // Adding more logging to your server can be an easy way to get passive
   // debugging help, but you should always be careful about leaving stray
