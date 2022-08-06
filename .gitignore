@@ -26,7 +26,6 @@ pids
 logs
 results
 
-
 ### NPM ###
 npm-debug.log
 node_modules
@@ -38,3 +37,6 @@ node_modules
 
 ### PhPStorm ###
 .idea/
+
+### API KEY ###
+client/env/config.js
